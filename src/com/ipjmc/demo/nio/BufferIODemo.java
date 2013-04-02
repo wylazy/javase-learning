@@ -34,6 +34,12 @@ public class BufferIODemo {
 		channel.close();
 	}
 	
+	/**
+	 * 无解码，适合处理英文文章
+	 * @param channel
+	 * @param directBuffer
+	 * @throws IOException
+	 */
 	public static void process1(FileChannel channel, ByteBuffer directBuffer) throws IOException {
 		byte [] dst = new byte[SIZE];
 		while (channel.read(directBuffer) > 0) {
@@ -47,6 +53,12 @@ public class BufferIODemo {
 		}
 	}
 	
+	/**
+	 * 通过utf-8解码
+	 * @param channel
+	 * @param directBuffer
+	 * @throws IOException
+	 */
 	public static void process2(FileChannel channel, ByteBuffer directBuffer) throws IOException {
 		Charset charset = Charset.forName("utf-8");
 		CharsetDecoder decoder = charset.newDecoder();
