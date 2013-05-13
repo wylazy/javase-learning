@@ -24,7 +24,7 @@ public class ScheduleTask {
 	
 	public void start() {
 		
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 8; i++) {
 			int id = i+1;
 			SimpleTask taks = new SimpleTask(id);
 			Future future = executor.scheduleAtFixedRate(taks, 0, 1, TimeUnit.SECONDS);

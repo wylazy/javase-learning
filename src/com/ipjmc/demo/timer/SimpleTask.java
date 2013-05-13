@@ -1,25 +1,23 @@
 package com.ipjmc.demo.timer;
 
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class SimpleTask implements Runnable {
 
 	int id;
 
+	int k = 0;
 	public SimpleTask(int id) {
 		this.id = id;
 	}
 	
 	@Override
 	public void run() {
-		long k = 0;
-		for (int i = 0; i < 100000; i++) {
-			for (int j = 0; j < 100000; j++) {
-				 k += i+j;
-			}
+		if (++k % 3 == 0) {
+			int i = k/0;
 		}
-		
-		System.out.println(id + " Executed " + k);
+		System.out.println(id + " Executed " + new Date());
 		
 	}
 
